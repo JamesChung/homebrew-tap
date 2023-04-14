@@ -5,21 +5,21 @@
 class Cprl < Formula
   desc "Multipurpose command line tool for AWS to make development life easier"
   homepage "https://github.com/JamesChung/cprl"
-  version "0.0.0-alpha-20230414014215"
+  version "0.0.0-beta.20230414"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-alpha-20230414014215/cprl_Darwin_arm64.tar.gz"
-      sha256 "3bbfd31fe4c2266818eceadf9d31d5d081b9eb22a89a463630849151d1c15bcb"
+      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-beta.20230414/cprl_Darwin_arm64.tar.gz"
+      sha256 "e64a7a2f95ea309c98acf45dec1da66639acc5decf325697ade6c166ff1823e2"
 
       def install
         bin.install "cprl"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-alpha-20230414014215/cprl_Darwin_x86_64.tar.gz"
-      sha256 "728b8054e0a45a0ac56785ae0f4c21e6daf32543c13444e973fe740f27dfb325"
+      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-beta.20230414/cprl_Darwin_x86_64.tar.gz"
+      sha256 "6420bf170a553beb4600e0cb991bfb8722d63f01f4bf3d8bdb6e665ed5a30abc"
 
       def install
         bin.install "cprl"
@@ -28,17 +28,17 @@ class Cprl < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-alpha-20230414014215/cprl_Linux_x86_64.tar.gz"
-      sha256 "75822ef83566af621a59fc974860462f81bdc5b517bbb677daa9e993915b1f13"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-beta.20230414/cprl_Linux_arm64.tar.gz"
+      sha256 "37cf533c657da119ebf28a6e3ba74e7e8d74f0ed777ec92f13b9759f482ce5fb"
 
       def install
         bin.install "cprl"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-alpha-20230414014215/cprl_Linux_arm64.tar.gz"
-      sha256 "051ea8377a393d3985353a4bd7d29c8009987be7dc268f13d39c84781251e2c4"
+    if Hardware::CPU.intel?
+      url "https://github.com/JamesChung/cprl/releases/download/v0.0.0-beta.20230414/cprl_Linux_x86_64.tar.gz"
+      sha256 "d300f8ed3bcbc2c727afd5e4f86811a59d4f6335e2f95150cd6bc4bd562d0885"
 
       def install
         bin.install "cprl"
